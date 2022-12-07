@@ -1,0 +1,12 @@
+button,option,select,#clear-messages,h4,.arial,.nick,.text{
+  font-family:Arial;
+}
+#footer{
+  position:relative;
+}
+br{
+  user-select:none;
+}
+#chatinput{
+  border:0px;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<!--LICENSE:https://www.apache.org/licenses/LICENSE-2.0-->
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>XChat聊天室(Ice团队站长改良版)</title>
+  <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <link id="scheme-link" rel="stylesheet" href="http://43.248.189.36:30000/schemes/atelier-dune.css">
+
+  <link rel="stylesheet" href="http://43.248.189.36:30000/vendor/katex/katex.min.css">
+  <script src="http://43.248.189.36:30000/vendor/katex/katex.min.js"></script>
+  <script src="http://43.248.189.36:30000/vendor/remarkable-katex/remarkableKatex.min.js"></script>
+
+  <script src="http://43.248.189.36:30000/vendor/hljs/highlight.min.js"></script>
+  <link id="highlight-link" rel="stylesheet" href="http://43.248.189.36:30000/vendor/hljs/styles/hybrid.min.css">
+  <script src="http://43.248.189.36:30000/vendor/remarkable/remarkable.min.js"></script>
+</head>
+
+<body onload="toggleDemo();">
+  <audio style="display: none" id="notify-sound" preload="auto" src="audio/notify.mp3">
+    <source src="audio/notify.mp3" type="audio/ogg">
+  </audio>
+  <article class="container">
+    <div id="messages" class="messages"></div>
+  </article>
+  <footer id="footer">
+    <div class="container">
+      <form id="chatform" class="message">
+        <textarea id="chatinput" class="form-control" type="text" autocomplete="off" autofocus></textarea>
+      </form>
+    </div>
+  </footer>
+  <nav id="sidebar">
+    <div id="sidebar-content" class="hidden">
+      <h4>设置</h4>
+      <p class="custom-checkbox">
+        <input id="pin-sidebar" type="checkbox">
+        <label for="pin-sidebar" class="arial">固定侧边栏</label>
+      </p>
+      <p class="custom-checkbox">
+        <input id="sound-switch" type="checkbox">
+        <label for="sound-switch" class="arial">声音提醒</label>
+      </p>
+      <p class="custom-checkbox">
+        <input id="notify-switch" type="checkbox">
+        <label for="notify-switch" class="arial">桌面通知</label>
+      </p>
+      <p class="custom-checkbox">
+        <input id="joined-left" type="checkbox" checked>
+        <label for="joined-left" class="arial">加入/离开 提醒</label>
+      </p>
+      <p class="custom-checkbox">
+        <input id="parse-latex" type="checkbox" checked>
+        <label for="parse-latex" title="允许渲染LaTeX" class="arial">启用数学公式</label>
+      </p>
+      <p class="custom-checkbox">
+        <input id="syntax-highlight" type="checkbox" checked>
+        <label for="syntax-highlight" class="arial">代码高光</label>
+      </p>
+      <p class="custom-checkbox">
+        <input id="allow-imgur" type="checkbox" checked>
+        <label for="allow-imgur" title="使用MarkDown来发送图片，例如：![标题](图片地址)" class="arial">显示图片</label>
+      </p>
+      <hr>
+      <p>
+        <h4>颜色主题</h4>
+        <select id="scheme-selector" class="form-control"></select>
+      </p>
+      <p>
+        <h4>高光样式</h4>
+        <select id="highlight-selector" class="form-control"></select>
+      </p>
+      <hr>
+      <p>
+        <button id="set-head" class="btn btn-primary">设置头像</button>
+      </p>
+      <hr>
+      <p>
+        <button id="clear-messages" class="btn btn-primary">清除本页聊天内容</button>
+      </p>
+      <hr>
+      <h4>在线的用户</h4>
+      <p class="arial">(点击可邀请到另外一个房间)</p>
+      <ul id="users"></ul>
+    </div>
+  </nav>
+  <script src="http://43.248.189.36:30000/client.js"></script>
+</body>
+<br><br><br><br><br><br><br><br><br><br>
+<script type="text/javascript">
+  // Dark mode toggle demo
+  function toggleDemo() {
+    halfmoon.toggleDarkMode();
+  }
+</script>
+</html>
